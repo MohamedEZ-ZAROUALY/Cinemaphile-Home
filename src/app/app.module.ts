@@ -11,6 +11,7 @@ import { TvshowComponent } from './modals/tvshow/tvshow.component';
 import { PersonComponent } from './modals/person/person.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { RegisterComponent } from './register/register.component';
+import { FavorisComponent } from './favoris/favoris.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     TvshowComponent,
     PersonComponent,
     LoginComponentComponent,
-    RegisterComponent
+    RegisterComponent,
+    FavorisComponent
   ],
   imports: [
     BrowserModule,

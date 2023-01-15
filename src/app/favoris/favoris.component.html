@@ -5,15 +5,11 @@
         <h1 class="display-4 col-12 headliner"><b>Cinemaphile Home - by EZ-ZAROUALY Mohamed</b></h1>
         <p class="lead col-12">Follow with us the latest TV shows and movies !</p>
         <div class="col-12 col-xl-4 mb-2 d-flex flex-column flex-sm-row align-items-center">
-          <button [disabled]="showMovies" type="button" class="btn btn-light mr-2 mb-1" (click)="getTopMovies()">Top
-                Movies</button>
-          <button type="button" class="btn btn-light mr-2 mb-1"><a href="/favoris" > Favoris</a></button>
-          <button type="button" class="btn btn-light mr-2 mb-1"><a href="/login" > Sign out</a></button>
+          <button type="button" class="btn btn-light mr-2 mb-1" (click)="getTopMovies()"><a href="/home" > Top Movies </a></button>
+          <button disabled="disabled" type="button" class="btn btn-light mr-2 mb-1"><a href="/favoris" > Favoris </a></button>
+          <button type="button" class="btn btn-light mr-2 mb-1"><a href="/login" > Sign out </a></button>
         </div>
-        <div class="col-12 col-xl-8">
-          <input id="nameFilter" class="form-control" type="text" name="search" (keyup)="onSearch($event)"
-            autocomplete="off" placeholder="Search">
-        </div>
+        
       </div>
     </div>
   </header>

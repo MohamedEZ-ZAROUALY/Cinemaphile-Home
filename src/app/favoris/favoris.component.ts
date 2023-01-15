@@ -8,11 +8,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MovieComponent } from '../modals/movie/movie.component';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-favoris',
+  templateUrl: './favoris.component.html',
+  styleUrls: ['./favoris.component.css']
 })
-export class HomepageComponent implements OnInit, OnDestroy {
+export class FavorisComponent implements OnInit {
   // movies
   top20Movies: Movie[];
   private movieSub: Subscription;
@@ -47,7 +47,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.movieService.getMovies();
       // will get initial array of movies from server
       this.movieSub = this.movieService.getMovieUpdateListener()
-        .subscribe(movieData => this.top20Movies = movieData);
+        .subscribe(movieData => this.top20Movies = movieData.filter(m => m.voteaverage >= 7.7));
     }
   }
   getTopShows() {
@@ -101,7 +101,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.movieService.getSearch(searchString);
       this.searchSub = this.movieService.getSearchUpdateListener()
         .subscribe(currentData => {
-          this.searchResults = currentData.filter(m => m.media_type === 'movie');
+          this.searchResults = currentData.filter(m => m.vote_average >= 8);
           console.log(this.searchResults);
           // unsub
           this.searchSub.unsubscribe();
