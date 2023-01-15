@@ -9,6 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MovieComponent } from './modals/movie/movie.component';
 import { TvshowComponent } from './modals/tvshow/tvshow.component';
 import { PersonComponent } from './modals/person/person.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { PersonComponent } from './modals/person/person.component';
     HomepageComponent,
     MovieComponent,
     TvshowComponent,
-    PersonComponent
+    PersonComponent,
+    LoginComponentComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

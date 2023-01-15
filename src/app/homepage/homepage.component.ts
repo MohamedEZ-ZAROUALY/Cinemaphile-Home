@@ -59,8 +59,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
     if (!this.top20Shows) {
       this.movieService.getTvShows();
       // will get initial array of tv shows from server
-      this.tvshowSub = this.movieService.getShowUpdateListener()
-        .subscribe(showsData => this.top20Shows = showsData);
+       this.top20Shows = [];
     }
   }
   getTopPersons() {
@@ -70,8 +69,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
     if (!this.top20Persons) {
       this.movieService.getPersons();
       // will get initial array of persons from server
-      this.personSub = this.movieService.getPersonUpdateListener()
-        .subscribe(personsData => this.top20Persons = personsData);
+       this.top20Persons = [];
     }
   }
   getDetails(id: string, type: string) {
@@ -90,12 +88,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
       case 'movie':
         oComponent = MovieComponent;
         break;
-      case 'tv':
-        oComponent = TvshowComponent;
-        break;
-      case 'person':
-        oComponent = PersonComponent;
-        break;
     }
     // open modal with component as content and pass details
     const modalRef =  this.modalService.open(oComponent, { size: 'lg', centered: true, windowClass: 'dark-modal' });
@@ -111,7 +103,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.movieService.getSearch(searchString);
       this.searchSub = this.movieService.getSearchUpdateListener()
         .subscribe(currentData => {
-          this.searchResults = currentData;
+          this.searchResults = currentData.filter(m => m.media_type === 'movie');
           console.log(this.searchResults);
           // unsub
           this.searchSub.unsubscribe();
